@@ -1,0 +1,36 @@
+<h2>📦 Lista de Productos</h2>
+
+<button (click)="cargarProductos()">🔄 Recargar lista</button>
+<br><br>
+
+<table border="1" cellpadding="8">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Categoría</th>
+    <th>Marca</th>
+    <th>Unidad</th>
+    <th>Precio</th>
+    <th>Estado</th>
+    <th>Acciones</th>
+  </tr>
+  </thead>
+
+  <tbody>
+    @for (p of productos; track p.idProducto) {
+      <tr>
+        <td>{{ p.idProducto }}</td>
+        <td>{{ p.nombre }}</td>
+        <td>{{ p.categoria }}</td>
+        <td>{{ p.marca }}</td>
+        <td>{{ p.unidadMedida }}</td>
+        <td>{{ p.precio | currency:'COP' }}</td>
+        <td>{{ p.estado }}</td>
+        <td>
+          <button (click)="deleteProducto(p.idProducto)">🗑️ Eliminar</button>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
